@@ -1,0 +1,16 @@
+{% extends "layout.njk" %}
+
+{% block body %}
+  <header>
+    <h1>No Groupthink</h1>
+  </header>
+
+  <main>
+    <p>Create a poll:</p>
+    <form method="post" action="/polls">
+      <label name="name">Name</label>
+      <input name="name" type="text" maxlength="100" placeholder="E.g., Candidate Marty McFly">
+      <button type="submit">Create poll</button>
+    </form>
+  </main>
+{% endblock %}

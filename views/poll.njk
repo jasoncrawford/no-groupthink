@@ -1,0 +1,26 @@
+{% extends "layout.njk" %}
+
+{% block title %}{{poll.name}}{% endblock %}
+
+{% block body %}
+  <header>
+    <h1>{{poll.name}}</h1>
+  </header>
+
+  <main>
+    <ul class="options-list"></ul>
+    <form class="add-option-form">
+      <input name="options" class="option-input" type="text" placeholder="Add option">
+    </form>
+  </main>
+{% endblock %}
+
+{% block script %}
+<script>
+  $(function () {
+    console.log('poll page');
+    var model = new App.Poll({{poll | dump | safe}})
+    var controller = new App.PollController({model: model, el: $('body')});
+  })
+</script>
+{% endblock %}
